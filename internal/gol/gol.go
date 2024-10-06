@@ -7,6 +7,12 @@ import (
 
 type State [][]bool
 
+func getWidthAndHeight(state State) (int, int) {
+	h := len(state)
+	w := len(state[0])
+    return w, h
+}
+
 func Print(state State) {
     for _, row := range state {
         for _, cell := range row {

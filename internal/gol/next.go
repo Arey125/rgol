@@ -1,8 +1,7 @@
 package gol
 
 func isAlive(state State, i int, j int) bool {
-	h := len(state)
-	w := len(state[0])
+    w, h := getWidthAndHeight(state)
 
 	if i < 0 || i >= h {
 		return false
@@ -34,8 +33,7 @@ func aliveInNextState(state State, i int, j int) bool {
 }
 
 func Next(state State) State {
-	h := len(state)
-	w := len(state[0])
+    w, h := getWidthAndHeight(state)
 
 	next := make([][]bool, h)
 	for i := range next {
