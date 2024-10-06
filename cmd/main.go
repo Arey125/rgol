@@ -10,7 +10,13 @@ const stateString = `...
 ###
 ...`
 
+const anotherStateString = `###
+...
+###`
+
 func main() {
     state := gol.FromString(stateString)
-    fmt.Println(gol.DoMatchHorizontally(state, state))
+    state = gol.Next(state)
+    anotherState := gol.FromString(anotherStateString)
+    fmt.Println(gol.DoMatchVertically(state, anotherState))
 }
