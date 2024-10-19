@@ -3,3 +3,6 @@ all:
 
 run: all
 	@./bin/rgol
+
+test:
+	@go test ./...

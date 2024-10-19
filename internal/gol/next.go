@@ -35,10 +35,7 @@ func aliveInNextState(state State, i int, j int) bool {
 func Next(state State) State {
     w, h := getWidthAndHeight(state)
 
-	next := make([][]bool, h)
-	for i := range next {
-		next[i] = make([]bool, w)
-	}
+	next := NewState(w, h)
 	for i := 0; i < h; i++ {
 		for j := 0; j < w; j++ {
 			next[i][j] = aliveInNextState(state, i, j)

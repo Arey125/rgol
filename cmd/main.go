@@ -6,17 +6,12 @@ import (
 	"github.com/Arey125/rgol/internal/gol"
 )
 
-const stateString = `...
-###
-...`
-
-const anotherStateString = `###
-...
-###`
-
 func main() {
-    state := gol.FromString(stateString)
-    state = gol.Next(state)
-    anotherState := gol.FromString(anotherStateString)
-    fmt.Println(gol.DoMatchVertically(state, anotherState))
+    states := gol.PreviousForOneCell(false)
+    fmt.Println(len(states))
+
+    for _, state := range states {
+        gol.Print(state)
+        fmt.Println()
+    }
 }

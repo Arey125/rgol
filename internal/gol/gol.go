@@ -7,6 +7,14 @@ import (
 
 type State [][]bool
 
+func NewState(w int, h int) State {
+    res := make([][]bool, h)
+    for i := range res {
+        res[i] = make([]bool, w)
+    }
+    return res
+}
+
 func getWidthAndHeight(state State) (int, int) {
 	h := len(state)
 	w := len(state[0])
@@ -28,10 +36,9 @@ func Print(state State) {
 
 func FromString(stateString string) State {
     lines := strings.Split(stateString, "\n")
-    res := make([][]bool, len(lines))
+    res := NewState(len(lines[0]), len(lines))
 
     for i, line := range lines {
-        res[i] = make([]bool, len(line))
         for j, c := range line {
             if c == '#' {
                 res[i][j] = true
